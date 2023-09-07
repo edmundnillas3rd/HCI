@@ -63,6 +63,7 @@ export default function App() {
           const Composites = Matter.Composites;
           const Mouse = Matter.Mouse;
           const MouseConstraint = Matter.MouseConstraint;
+          const Render = Matter.Render;
 
           Composite.add(world, [
             Bodies.rectangle(400, 0, 800, 50, { isStatic: true }),
@@ -124,6 +125,13 @@ export default function App() {
             });
 
           Composite.add(world, mouseConstraint);
+
+          renderer.mouse = mouse;
+
+          Render.lookAt(renderer, {
+            min: { x: 0, y: 0 },
+            max: { x: 800, y: 600 }
+        });
         }}
       />
       <Visualizer
